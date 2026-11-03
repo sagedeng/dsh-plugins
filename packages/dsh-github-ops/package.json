@@ -1,5 +1,5 @@
 {
-  "name": "@local/dsh-github-ops",
+  "name": "dsh-github-ops",
   "version": "0.1.1",
   "private": true,
   "type": "module",

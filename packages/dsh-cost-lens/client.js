@@ -8,7 +8,7 @@
  * only formats and renders.
  */
 window.__ModuleLoader__.load({
-  id: '@local/dsh-cost-lens',
+  id: 'dsh-cost-lens',
   factory(require) {
     const React = require('react')
     const h = React.createElement

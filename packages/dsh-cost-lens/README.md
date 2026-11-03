@@ -47,7 +47,7 @@ Optional overrides in the profile's `cordis.patch.yml`:
 
 ```yaml
 - id: cost-lens
-  name: '@local/dsh-cost-lens'
+  name: 'dsh-cost-lens'
   config:
     currency: CNY          # cost display currency: CNY | USD
     balanceTtlMs: 60000    # balance poll interval

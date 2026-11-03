@@ -37,7 +37,7 @@
 
 ```yaml
 - id: github-ops
-  name: '@local/dsh-github-ops'
+  name: 'dsh-github-ops'
   config:
     ghPath: gh              # gh 可执行文件
     gitPath: git

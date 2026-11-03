@@ -5,11 +5,11 @@
   "plugins": [
     {
       "id": "cost-lens",
-      "package": "@local/dsh-cost-lens",
-      "dir": "dsh-cost-lens",
+      "package": "dsh-cost-lens",
+      "dir": "packages/dsh-cost-lens",
       "version": "0.1.0",
       "enabled": true,
-      "tarball": "dist/local-dsh-cost-lens-0.1.0.tgz",
+      "tarball": "dist/dsh-cost-lens-0.1.0.tgz",
       "configLayer": "profiles/desktop/cordis.patch.yml",
       "verify": {
         "configEntryId": "cost-lens",
@@ -26,11 +26,11 @@
     },
     {
       "id": "github-ops",
-      "package": "@local/dsh-github-ops",
-      "dir": "dsh-github-ops",
+      "package": "dsh-github-ops",
+      "dir": "packages/dsh-github-ops",
       "version": "0.1.1",
       "enabled": true,
-      "tarball": "dist/local-dsh-github-ops-0.1.1.tgz",
+      "tarball": "dist/dsh-github-ops-0.1.1.tgz",
       "configLayer": "profiles/desktop/cordis.patch.yml",
       "verify": {
         "configEntryId": "github-ops",

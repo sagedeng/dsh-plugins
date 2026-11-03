@@ -1,0 +1,21 @@
+# 把需要的条目合并进 ~/.dsh/profiles/<profile>/cordis.patch.yml，不要整份覆盖
+# （那份文件里还有主题、语言等本机偏好）。
+#
+# 这里的 id 就是各插件 INSERT 的行 id；没列出的行用插件默认值即可。
+
+- id: cost-lens
+  name: dsh-cost-lens
+  config:
+    currency: CNY            # 花费显示币种：CNY | USD
+    balanceTtlMs: 60000      # 余额刷新间隔
+    historyDays: 14          # 启动时回填会话历史的天数
+    holidayDates: []         # 追加的法定节假日（北京时间日期 YYYY-MM-DD）
+
+- id: github-ops
+  name: dsh-github-ops
+  config:
+    ghPath: gh               # gh 可执行文件
+    gitPath: git
+    requireApproval: true    # 写操作审批；设为 false 会跳过闸门（不建议）
+    defaultRemote: origin
+    maxBodyChars: 4000       # PR/issue 正文回传上限

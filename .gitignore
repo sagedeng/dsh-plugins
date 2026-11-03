@@ -10,3 +10,6 @@ dist/
 
 # 任何随插件跑起来的依赖
 node_modules/
+
+# 本地私货，不进仓库
+.local/

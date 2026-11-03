@@ -30,7 +30,7 @@ command -v dsh pnpm git node          # 四个都要有
 优先级从高到低，任选其一，落到 `~/DeepSeekWork`：
 
 1. `git clone <远端> ~/DeepSeekWork`
-2. 用户带来的离线包：`dist/local-dsh-cost-lens-<version>.tgz`（此时不需要仓库，直接跳到 1.2 的 B 路）
+2. 用户带来的离线包：`dist/dsh-cost-lens-<version>.tgz`（此时不需要仓库，直接跳到 1.2 的 B 路）
 3. 仓库目录压缩包解压（无远端时的兜底）
 
 确认结构：
@@ -52,21 +52,27 @@ node ~/DeepSeekWork/scripts/check.mjs
 plugin_manager { action: "install_bundle", target: "<仓库绝对路径>/<dir>" }
 ```
 
-例：`/Users/dsz/DeepSeekWork/dsh-cost-lens`
+例：`/Users/dsz/DeepSeekWork/packages/dsh-cost-lens`
 
 读返回：`application` 必须是 `applied`；`warnings` 必须为空；出现 `restart-required` 就重启 DSH 再验。
 
-**B 路 · 只有 tgz（分发给别人 / 路径对不上）** —— 装死版本：
+**B 路 · 直接从 GitHub 装（无需 clone）** —— 仓库已公开时最省事：
 
 ```
-plugin_manager { action: "install_bundle", target: "<绝对路径>/dist/local-dsh-cost-lens-0.1.0.tgz" }
+plugin_manager { action: "install_bundle", target: "github:sagedeng/dsh-plugins#path:/packages/dsh-cost-lens" }
 ```
 
-B 路不依赖代码目录，`~/DeepSeekWork` 可以不存在。
+**C 路 · 只有 tgz（离线/锁版本）** —— 装死版本：
+
+```
+plugin_manager { action: "install_bundle", target: "<绝对路径>/dist/dsh-cost-lens-0.1.0.tgz" }
+```
+
+B、C 两路都不依赖本地代码目录，`~/DeepSeekWork` 可以不存在。
 
 ### 1.3 配置覆盖（只在这些键上动手）
 
-`profiles/desktop/cordis.patch.yml` 是**快照**，不是配置源。到目标机器上：
+`cordis.patch.example.yml` 是**快照**，不是配置源。到目标机器上：
 
 1. 打开 `~/.dsh/profiles/<profile>/cordis.patch.yml`
 2. 只把其中带 `id: <插件 id>` 的条目（如 `cost-lens`）合并进去
@@ -88,7 +94,7 @@ node ~/DeepSeekWork/scripts/check.mjs
 
 ```
 cordis_inspect_query { platform: "host", provider: "Config", method: "listConfigs",
-                       input: { name: "@local/dsh-cost-lens" } }
+                       input: { name: "dsh-cost-lens" } }
   → entries 里出现 patchId "cost-lens"
 
 cordis_inspect_query { platform: "client", provider: "Slots", method: "listSubTree",
@@ -112,13 +118,13 @@ cordis_inspect_query { platform: "client", provider: "Slots", method: "listSubTr
 
 ## 2. 本机新增插件
 
-1. 在 `~/DeepSeekWork/<dir>/` 建包（`package.json` 带 `dsh.bundle.patch`，有 UI 就带 `dsh.client`）
+1. 在 `~/DeepSeekWork/packages/<dir>/` 建包（`package.json` 带 `dsh.bundle.patch`，有 UI 就带 `dsh.client`）
 2. 在 `plugins.json` 的 `plugins` 数组追加一项（`id / package / dir / version / enabled / verify`）
 3. `node scripts/check.mjs` 通过
 4. `plugin_manager install_bundle`（同上 A 路）
 5. 按该项的 `verify` 逐条验
 
-命名纪律（决定多个插件能不能共处）：目录 `dsh-<id>`、包名 `@local/dsh-<id>`、slot id `<id>`、路由 `/dsh-<id>/...`、storage 目录 `<id>`、locale 命名空间 `<id>` 驼峰。四项公共资源全部带前缀，冲突只可能发生在自己身上。
+命名纪律（决定多个插件能不能共处）：目录 `packages/dsh-<id>`、包名 `dsh-<id>`、slot id `<id>`、路由 `/dsh-<id>/...`、storage 目录 `<id>`、locale 命名空间 `<id>` 驼峰。四项公共资源全部带前缀，冲突只可能发生在自己身上。
 
 ## 3. 更新已有插件
 
