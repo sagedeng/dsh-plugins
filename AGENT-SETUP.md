@@ -96,6 +96,9 @@ cordis_inspect_query { platform: "client", provider: "Slots", method: "listSubTr
   → occupants 里有 { id: "cost-lens", active: true }
 ```
 
+工具型插件（如 `github-ops`）不看槽位，看工具表：`cordis_inspect_query { platform: "host", provider: "Tool", method: "listTools" }`
+里应出现清单中 `verify.tools` 的每个名字，然后**真调一次**读工具（`github_status`）确认它能跑通。
+
 `ok:true` 但没有余额 → 见 1.5；`active:false` 或槽位缺失 → 见第 4 节。
 
 ### 1.5 新机器上必须由人做的一件事
@@ -119,7 +122,7 @@ cordis_inspect_query { platform: "client", provider: "Slots", method: "listSubTr
 
 ## 3. 更新已有插件
 
-- **A 路（link）**：改文件即可。浏览器侧热更新；改动 Host 侧（`index.js`）后最稳的是重启 DSH 再验一次。
+- **A 路（link）**：客户端 bundle 会热更新；**Host 侧（`index.js`）的改动必须重启 DSH 才会重新导入模块**（插件管理器文档明确：linked 包改代码后需要重启）。重启后用一个探针字段确认新代码已加载，例如 `github_status` 输出里的 `plugin.version`。
 - **B 路（tgz）**：改 `version` → `./scripts/pack.sh` → `install_bundle` 指向新 tgz。装同包名的新版本 = 先移除再装，中间会有一段插件不在线，装完记得复验第 1.4 节。
 - 无论哪条路：**升级不碰配置**。`cordis.patch.yml` 里的覆盖按 `id` 匹配，版本变了照样生效。
 

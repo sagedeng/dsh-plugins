@@ -14,8 +14,42 @@
       "verify": {
         "configEntryId": "cost-lens",
         "route": "/dsh-cost-lens/state.json",
-        "slot": { "name": "conversation.composer.dock", "id": "cost-lens" },
-        "needs": ["python3 或 node 用于校验", "DeepSeek 账户登录或 DEEPSEEK_API_KEY（余额）"]
+        "slot": {
+          "name": "conversation.composer.dock",
+          "id": "cost-lens"
+        },
+        "needs": [
+          "python3 或 node 用于校验",
+          "DeepSeek 账户登录或 DEEPSEEK_API_KEY（余额）"
+        ]
+      }
+    },
+    {
+      "id": "github-ops",
+      "package": "@local/dsh-github-ops",
+      "dir": "dsh-github-ops",
+      "version": "0.1.1",
+      "enabled": true,
+      "tarball": "dist/local-dsh-github-ops-0.1.1.tgz",
+      "configLayer": "profiles/desktop/cordis.patch.yml",
+      "verify": {
+        "configEntryId": "github-ops",
+        "tools": [
+          "github_status",
+          "github_pr_list",
+          "github_pr_view",
+          "github_checks",
+          "github_issue_list",
+          "github_repo_create",
+          "github_commit_push",
+          "github_pr_create",
+          "github_pr_review",
+          "github_issue_create"
+        ],
+        "needs": [
+          "gh CLI 已安装且 gh auth login 完成",
+          "approval 服务可用（写操作要审批）"
+        ]
       }
     }
   ]

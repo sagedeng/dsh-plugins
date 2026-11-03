@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "GitHub 操作",
+    "description": "读取仓库状态、提交推送、创建与评审 PR、跟踪 CI 检查、开 issue —— 适用于任意 GitHub 仓库。"
+  }
+}

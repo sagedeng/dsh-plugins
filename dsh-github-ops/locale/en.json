@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "GitHub Operations",
+    "description": "Reads repository state, commits and pushes, opens pull requests, submits reviews, follows CI checks and files issues — for any GitHub repository."
+  }
+}

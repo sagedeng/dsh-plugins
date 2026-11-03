@@ -1,0 +1,25 @@
+{
+  "name": "@local/dsh-github-ops",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "description": "GitHub operations for the conversation: repository status, commit and push, pull requests, reviews, CI checks and issues.",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
