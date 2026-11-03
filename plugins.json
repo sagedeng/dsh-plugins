@@ -1,0 +1,22 @@
+{
+  "$comment": "本机自建插件的唯一清单。换电脑时，代理按本文件逐条安装并验证。dir 相对仓库根；verify 是装完必须成立的事实。",
+  "version": 1,
+  "targetProfile": "desktop",
+  "plugins": [
+    {
+      "id": "cost-lens",
+      "package": "@local/dsh-cost-lens",
+      "dir": "dsh-cost-lens",
+      "version": "0.1.0",
+      "enabled": true,
+      "tarball": "dist/local-dsh-cost-lens-0.1.0.tgz",
+      "configLayer": "profiles/desktop/cordis.patch.yml",
+      "verify": {
+        "configEntryId": "cost-lens",
+        "route": "/dsh-cost-lens/state.json",
+        "slot": { "name": "conversation.composer.dock", "id": "cost-lens" },
+        "needs": ["python3 或 node 用于校验", "DeepSeek 账户登录或 DEEPSEEK_API_KEY（余额）"]
+      }
+    }
+  ]
+}

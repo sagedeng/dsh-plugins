@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# 插件打包产物（分发用，不进仓库）
+dist/
+*.tgz
+
+# profile 的旧快照，只有需要考古时才翻
+.dsh-backup/
+
+# 任何随插件跑起来的依赖
+node_modules/
