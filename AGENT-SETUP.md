@@ -56,7 +56,7 @@ plugin_manager { action: "install_bundle", target: "<仓库绝对路径>/<dir>" 
 
 读返回：`application` 必须是 `applied`；`warnings` 必须为空；出现 `restart-required` 就重启 DSH 再验。
 
-**B 路 · 直接从 GitHub 装（无需 clone）** —— 仓库已公开时最省事：
+**B 路 · 直接从 GitHub 装（无需 clone）** —— 仓库已公开时最省事（`#path:` 子目录语法已用 pnpm 10.8.1 实测可用；插件管理器走 launcher 自带的 pnpm 11）：
 
 ```
 plugin_manager { action: "install_bundle", target: "github:sagedeng/dsh-plugins#path:/packages/dsh-cost-lens" }
