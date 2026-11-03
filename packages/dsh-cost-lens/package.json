@@ -5,6 +5,15 @@
   "type": "module",
   "description": "DeepSeek Cost Lens — balance, usage, official peak/off-peak pricing and live spend in the DSH Web UI.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagedeng/dsh-plugins.git",
+    "directory": "dsh-cost-lens"
+  },
+  "homepage": "https://github.com/sagedeng/dsh-plugins/tree/main/packages/dsh-cost-lens#readme",
+  "bugs": {
+    "url": "https://github.com/sagedeng/dsh-plugins/issues"
+  },
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
@@ -27,7 +36,9 @@
     "client": {
       "platform": "web",
       "immediately": true,
-      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
     }
   }
 }

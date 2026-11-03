@@ -1,5 +1,7 @@
 # GitHub Operations
 
+> 仓库：https://github.com/sagedeng/dsh-plugins/tree/main/packages/dsh-github-ops
+
 给对话加上一组 GitHub 工具：**看 → 改 → 发 → 评审 → 追 CI / issue**。不绑定任何仓库，目标由参数 `repo`（`owner/name`）或当前会话工作区决定。
 
 ## 工具

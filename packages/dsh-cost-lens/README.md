@@ -1,5 +1,7 @@
 # DeepSeek Cost Lens
 
+> 仓库：https://github.com/sagedeng/dsh-plugins/tree/main/packages/dsh-cost-lens
+
 A DSH Web UI plugin that answers four questions in one line under the composer:
 
 | | |

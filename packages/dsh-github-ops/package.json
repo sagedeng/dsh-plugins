@@ -5,6 +5,15 @@
   "type": "module",
   "description": "GitHub operations for the conversation: repository status, commit and push, pull requests, reviews, CI checks and issues.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagedeng/dsh-plugins.git",
+    "directory": "dsh-github-ops"
+  },
+  "homepage": "https://github.com/sagedeng/dsh-plugins/tree/main/packages/dsh-github-ops#readme",
+  "bugs": {
+    "url": "https://github.com/sagedeng/dsh-plugins/issues"
+  },
   "exports": {
     ".": "./index.js",
     "./locale/*.json": "./locale/*.json",
